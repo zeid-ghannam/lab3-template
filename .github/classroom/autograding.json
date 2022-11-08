@@ -3,7 +3,7 @@
     {
       "name": "Run Postman",
       "setup": "",
-      "run": "newman run --delay-request=100 --folder=Success\\ Scenarios --environment <Variant>/postman/[rsoi][heroku]\\ postman_environment.json <Variant>/postman/[rsoi]\\ postman_collection.json",
+      "run": "newman run --delay-request=100 --folder=success --environment <variant>/postman/environment.json <variant>/postman/collection.json",
       "input": "",
       "output": "",
       "comparison": "included",
