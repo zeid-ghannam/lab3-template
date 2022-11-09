@@ -27,7 +27,7 @@ jobs:
           docker compose up -d
           ./scripts/wait-script.sh
         env:
-          WAIT_PORTS=8080,8070,8060,8050
+          WAIT_PORTS: 8080,8070,8060,8050
 
       # TODO setup variant, service and port
 
@@ -35,9 +35,9 @@ jobs:
         timeout-minutes: 5
         run: ./scripts/test-script.sh
         env:
-          VARIANT=<variant>
-          SERVICE_NAME=<your service name>
-          VARIANT=<port number>
+          VARIANT: <variant>
+          SERVICE_NAME: <your service name>
+          PORT_NUMBER: <port number>
 
       - uses: education/autograding@v1
         id: autograder
