@@ -20,7 +20,15 @@ class RetryWorker:
         max_retries = 5
         while retries < max_retries:
             try:
-                self.connection = pika.BlockingConnection(pika.ConnectionParameters(host=Config.RABBITMQ_HOST, connection_attempts=3, retry_delay=5))
+                parameters = pika.ConnectionParameters(
+                    host=Config.RABBITMQ_HOST,
+                    connection_attempts=3,
+                    retry_delay=5,
+                    heartbeat=60,  # Add heartbeat
+                    blocked_connection_timeout=300,  # Add timeout
+                    socket_timeout=10,  # Add socket timeout
+                )
+                self.connection = pika.BlockingConnection(parameters)
                 self.channel = self.connection.channel()
                 self.channel.queue_declare(queue="retry_queue", durable=True)
                 logger.info("Successfully connected to RabbitMQ")
