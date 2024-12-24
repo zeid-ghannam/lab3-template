@@ -73,4 +73,4 @@ step 2
 step 3
 
 # start service
-step 4
+# step 4
