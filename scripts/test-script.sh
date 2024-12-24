@@ -43,7 +43,7 @@ step() {
 
   if [[ "$step" -eq 4 ]]; then
     printf "Waiting for 10 seconds before executing step %d...\n" "$step"
-    sleep 20
+    retrun
   fi
   newman run \
     --delay-request=100 \
@@ -73,4 +73,4 @@ step 2
 step 3
 
 # start service
-# step 4
+step 4
