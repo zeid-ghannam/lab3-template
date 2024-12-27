@@ -42,7 +42,8 @@ step() {
   fi
 
   if [[ "$step" -eq 4 ]]; then
-    printf "Waiting for 10 seconds before executing step %d...\n" "$step"
+    printf "Waiting for 40 seconds before executing step %d...\n" "$step"
+    sleep 40
     #return
   fi
   newman run \
